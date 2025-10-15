@@ -1,7 +1,11 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = true,
+  dependencies = { 
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons", -- optional, but recommended
+  },
   config = function()
     local nvimtree = require("nvim-tree")
 
@@ -10,7 +14,7 @@ return {
     vim.g.loaded_netrwPlugin = 1
 
     -- change color for arrows in tree to light blue
-    vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+    -- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
     -- configure nvim-tree
     nvimtree.setup({
@@ -25,15 +29,7 @@ return {
       -- change folder arrow icons
       renderer = {
         indent_markers = {
-          enable = true,
-        },
-        icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
-            },
-          },
+          enable = false,
         },
       },
       -- disable window_picker for
@@ -62,6 +58,6 @@ return {
     -- set keymaps
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
   end,
 }
