@@ -58,6 +58,6 @@ return {
     -- set keymaps
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>", { desc = "neo-tree: toggle file explorer" })
   end,
 }
