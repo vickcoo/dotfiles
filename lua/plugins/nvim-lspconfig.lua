@@ -6,7 +6,6 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap -- for conciseness
     local opts = { noremap = true, silent = true }
@@ -66,11 +65,12 @@ return {
     }
 
     for _, lsp in ipairs(defaultLSPs) do
-      lspconfig[lsp].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        cmd = lsp == "sourcekit" and { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) } or nil,
-      })
+        vim.lsp.enable(lsp)
+        vim.lsp.config(lsp, {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            cmd = lsp == "sourcekit" and { vim.trim(vim.fn.system("xcrun -f sourcekit-lsp")) } or nil,
+        })
     end
 
     opts.desc = "Show line diagnostics"
