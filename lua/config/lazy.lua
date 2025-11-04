@@ -33,8 +33,7 @@ require("lazy").setup({
   checker = { enabled = true },
 
   -- Installed Plugins
-  {
-    "nvim-lua/plenary.nvim",
-  },
+  { "nvim-lua/plenary.nvim", },
+  { "mason-org/mason.nvim", opts = {} },
 
 })
