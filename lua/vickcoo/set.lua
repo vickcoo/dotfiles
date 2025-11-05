@@ -27,16 +27,26 @@ vim.opt.updatetime = 100
 
 -- Diagnostic signs
 vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-    },
-    linehl = {
-      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-      [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
-      [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint",
-      [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
-    },
-  }
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+            [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
+            [vim.diagnostic.severity.HINT]  = "DiagnosticSignHint",
+            [vim.diagnostic.severity.INFO]  = "DiagnosticSignInfo",
+        },
+    }
 })
+
+-- Color
+vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#e0af68" })
+vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#2ccc4a" })
+vim.api.nvim_set_hl(0, "NvimTreeGitMerge", { fg = "#d3869b" })
+vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = "#7aa2f7" })
+vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = "#a9b1d6" })
+vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = "#f7768e" })
+vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = "#565f89" })

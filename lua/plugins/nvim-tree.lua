@@ -43,6 +43,7 @@ return {
                     enable = false,
                 },
                 icons = {
+                    git_placement = "after", -- "signcolumn", "after"
                     glyphs = {
                         git = {
                             unstaged  = "M",
