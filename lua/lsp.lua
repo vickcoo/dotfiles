@@ -16,10 +16,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local lsp = vim.lsp
 		local bufopts = { noremap = true, silent = true }
 
-		keymap.set("n", "gr", lsp.buf.references, bufopts)
-		keymap.set("n", "gd", lsp.buf.definition, bufopts)
-		keymap.set("n", "<space>rn", lsp.buf.rename, bufopts)
-		keymap.set("n", "K", lsp.buf.hover, bufopts)
+		keymap.set("n", "gr", lsp.buf.references, { desc = "lsp: show references", noremap = true, silent = true })
+		keymap.set("n", "gd", lsp.buf.definition, { desc = "lsp: show definition", noremap = true, silent = true })
+		keymap.set("n", "<space>rn", lsp.buf.rename, { desc = "lsp: rename symbol", noremap = true, silent = true })
+		keymap.set("n", "K", lsp.buf.hover, { desc = "lsp: show hover information", noremap = true, silent = true })
 		keymap.set("n", "<space>f", function()
 			require("conform").format({ async = true, lsp_fallback = true })
 		end, bufopts)
