@@ -1,4 +1,12 @@
-vim.lsp.enable({ "sourcekit" })
+local orig = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "rounded"
+  opts.max_width = opts.max_width or 80
+  opts.max_height = opts.max_height or 20
+  --   opts.title = opts.title or " LSP Info"  -- 可改 icon
+  return orig(contents, syntax, opts, ...)
+end
 
 -- Create new keymapping for lsps
 -- LspAttach: After an LSP Client performs "initialize" and attaches to a buffer.
@@ -35,3 +43,4 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	end,
 })
 
+vim.lsp.enable({ "sourcekit" })
