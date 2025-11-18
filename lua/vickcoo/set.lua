@@ -42,6 +42,10 @@ vim.diagnostic.config({
     }
 })
 
+-- DAP signs
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#ff535a" })
+
 -- Color
 vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = "#e0af68" })
 vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = "#2ccc4a" })
