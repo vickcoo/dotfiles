@@ -43,4 +43,4 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end,
 })
 
-vim.lsp.enable({ "sourcekit", "lua_ls", "vimls", "pyright", "tslsp" })
+vim.lsp.enable({ "sourcekit", "lua_ls", "vimls", "pyright", "tslsp", "beancount" })

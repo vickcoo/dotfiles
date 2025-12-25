@@ -25,6 +25,14 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 100
 
+-- Filetype registration
+vim.filetype.add({
+    extension = {
+        beancount = "beancount",
+        bean = "beancount",
+    },
+})
+
 -- Diagnostic signs
 vim.diagnostic.config({
     signs = {
