@@ -1,0 +1,2 @@
+[alias]
+    l = log --graph --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an)%C(reset)'
