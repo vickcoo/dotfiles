@@ -1,3 +1,7 @@
 [alias]
+    # show log
     l = log --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an)%C(reset)'
+    # show log with graph
     lg = log --graph --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an)%C(reset)'
+    # show diff in vim
+	diffvim = "!f() { git diff \"$@\" | vim -R -c \"syntax on\" -c \"setlocal ft=diff\" -; }; f"
