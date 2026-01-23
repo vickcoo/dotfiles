@@ -2,6 +2,10 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         opts = {
+            current_line_blame = true,
+            current_line_blame_opts = {
+                delay = 50
+            },
             -- 這裡放入你想要套用的 on_attach 函式
             on_attach = function(bufnr)
                 local gitsigns = require("gitsigns")
@@ -65,6 +69,8 @@ return {
 
                 -- Text object (文字物件：可以用 cih, dih 來操作整個修改區塊)
                 map({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select Hunk" })
+
+                current_line_blame = true
             end,
         },
     },
