@@ -43,4 +43,5 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end,
 })
 
+vim.cmd.colorscheme "cyberdream"
 vim.lsp.enable({ "sourcekit", "lua_ls", "vimls", "pyright", "tslsp", "beancount" })
