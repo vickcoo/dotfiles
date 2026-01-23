@@ -1,7 +1,31 @@
 [alias]
-    # show log
-    l = log --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an)%C(reset)'
-    # show log with graph
-    lg = log --graph --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an)%C(reset)'
     # show diff in vim
 	diffvim = "!f() { git diff \"$@\" | vim -R -c \"syntax on\" -c \"setlocal ft=diff\" -; }; f"
+
+    # l: show log
+    # --all: show all branches
+    # --decorate: show refs (tags, branches)
+    # --abbrev-commit: shorten commit hash
+    # --color=always: enable color output
+    # --pretty=format:'...': format output
+    #   %h: abbreviated commit hash
+    #   %d: ref names (tags, branches)
+    #   %s: commit message
+    #   %an: author name
+    #   %ar: relative time (e.g., 2 days ago)
+    l = log --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+
+    # lg: show log with graph
+    # --graph: show ASCII graph of branch structure
+    # --all: show all branches
+    # --decorate: show refs (tags, branches)
+    # --abbrev-commit: shorten commit hash
+    # --color=always: enable color output
+    # --pretty=format:'...': format output
+    #   %h: abbreviated commit hash
+    #   %d: ref names (tags, branches)
+    #   %s: commit message
+    #   %an: author name
+    #   %ar: relative time (e.g., 2 days ago)
+    lg = log --graph --all --decorate --abbrev-commit --color=always --pretty=format:'%C(auto)%h %C(reset)%C(auto)%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+
