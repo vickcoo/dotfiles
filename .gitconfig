@@ -1,6 +1,6 @@
 [alias]
     # show diff in vim
-	diffvim = "!f() { git diff \"$@\" | vim -R -c \"syntax on\" -c \"setlocal ft=diff\" -; }; f"
+	diffvim = "!f() { git diff \"$@\" | nvim -R -c \"syntax on\" -c \"setlocal ft=diff\" -; }; f"
 
     # l: show log
     # --all: show all branches
