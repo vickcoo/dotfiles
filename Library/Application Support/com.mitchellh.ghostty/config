@@ -48,7 +48,10 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = 3024 night
+# ==========================customize==========================
+
+# Style
+theme = light:Catppuccin Latte,dark:3024 night
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
 
@@ -56,12 +59,15 @@ window-padding-x = 20
 window-padding-y = 20,20
 window-save-state = "always"
 
-# title = "λ"
-# macos-titlebar-style=tabs
-macos-titlebar-style=hidden
+macos-titlebar-style=tabs
 
-# background-opacity = 0.9
+background-opacity = 0.9
 background-blur-radius = 20
 
-# Clipboard
 cursor-style = block
+cursor-style-blink = true
+
+desktop-notifications = true
+
+# Keybindings
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
