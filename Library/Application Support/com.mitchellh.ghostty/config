@@ -60,6 +60,7 @@ window-padding-y = 20,20
 window-save-state = "always"
 
 macos-titlebar-style=tabs
+macos-icon = paper
 
 background-opacity = 0.9
 background-blur-radius = 20
