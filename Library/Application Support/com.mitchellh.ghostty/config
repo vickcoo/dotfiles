@@ -51,7 +51,7 @@
 # ==========================customize==========================
 
 # Style
-theme = light:Catppuccin Latte,dark:3024 night
+theme = light:Catppuccin Latte,dark:Vague
 font-family = "CaskaydiaCove Nerd Font Mono"
 font-thicken = true
 
