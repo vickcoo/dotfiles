@@ -2,24 +2,19 @@
     # show diff in vim
 	diffvim = "!f() { git diff \"$@\" | nvim -R -c \"syntax on\" -c \"setlocal ft=diff\" -; }; f"
 
-    # l: show log
-    # --all: show all branches
+    # l:  show log for current branch (or pass a branch/range as argument)
+    # la: show log across all branches
     # --pretty=format:'...': format output
     #   %h: abbreviated commit hash
     #   %d: ref names (tags, branches)
     #   %s: commit message
     #   %an: author name
     #   %ar: relative time (e.g., 2 days ago)
-    l = log --all --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+    l  = log --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+    la = log --all --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
 
-    # lg: show log with graph
+    # lg:  show log with graph for current branch (or pass a branch/range)
+    # lga: show log with graph across all branches
     # --graph: show ASCII graph of branch structure
-    # --all: show all branches
-    # --pretty=format:'...': format output
-    #   %h: abbreviated commit hash
-    #   %d: ref names (tags, branches)
-    #   %s: commit message
-    #   %an: author name
-    #   %ar: relative time (e.g., 2 days ago)
-    lg = log --graph --all --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
-
+    lg  = log --graph --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+    lga = log --graph --all --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
