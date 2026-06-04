@@ -18,3 +18,11 @@
     # --graph: show ASCII graph of branch structure
     lg  = log --graph --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
     lga = log --graph --all --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+
+    # lo: show unpushed commits (local ahead of upstream)
+    #     @{u} resolves to the current branch's upstream (e.g., origin/main)
+    # ll: show log with file change stats (--stat)
+    # lp: show log with full diff (--patch / -p)
+    lo = log @{u}..HEAD --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+    ll = log --stat --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
+    lp = log -p --pretty=format:'%C(auto)%h%d %C(reset)%s %C(dim white)(%an, %ar)%C(reset)'
