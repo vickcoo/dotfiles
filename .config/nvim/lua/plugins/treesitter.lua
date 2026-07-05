@@ -10,6 +10,7 @@ return {
                 "c", "lua", "vim", "vimdoc", "query",
                 "markdown", "markdown_inline",
                 "javascript", "typescript", "swift", "solidity",
+                "html",
             })
 
             -- 開檔時依 filetype 啟用 treesitter 上色
