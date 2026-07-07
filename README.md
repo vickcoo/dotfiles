@@ -38,6 +38,8 @@ brew install lua-language-server beancount-language-server
 
 # Java: JDK + jdtls language server (Maven projects)
 brew install openjdk maven jdtls
+# Java debugging + tests (optional), install once inside Neovim:
+#   :MasonInstall java-debug-adapter java-test
 
 # A Nerd Font (for icons), e.g.
 brew install --cask font-jetbrains-mono-nerd-font
@@ -96,6 +98,19 @@ Leader key is `<Space>`. `jk` exits insert mode.
 | `<leader>xx` | Diagnostics (project) |
 | `<leader>xX` | Diagnostics (current buffer) |
 | `<leader>xs` | Document symbols |
+
+### Debug (DAP)
+Session control is generic (works for any language); launch/test keys depend on the current file's language.
+| Key | Action |
+| --- | --- |
+| `<leader>dc` | Continue / start |
+| `<leader>di` | Step into |
+| `<leader>do` | Step over |
+| `<leader>dO` | Step out |
+| `<leader>de` | Toggle REPL |
+| `<leader>b` | Toggle breakpoint |
+| `<leader>dt` / `<leader>dT` | Java: debug nearest test / test class |
+| `<leader>dd` / `<leader>dt` | Swift: build & debug / debug tests (Xcode) |
 
 ### Git (Gitsigns / Fugitive)
 | Key | Action |
