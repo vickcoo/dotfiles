@@ -12,6 +12,9 @@ return {
             vim.keymap.set('n', '<leader>fs', function()
                 builtin.grep_string({ search = vim.fn.input("Grep > ") });
             end, { desc = "telescope: search text in global" })
+            vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'telescope: live grep' })
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'telescope: list open buffers' })
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'telescope: search help tags' })
         end,
     }
 }
