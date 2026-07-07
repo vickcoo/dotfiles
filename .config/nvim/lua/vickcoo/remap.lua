@@ -8,3 +8,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "vickcoo: scroll up half page a
 vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "vickcoo: paste without yanking" })
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "vickcoo: yank to system clipboard" })
+
+-- Window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "vickcoo: move to left window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "vickcoo: move to lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "vickcoo: move to upper window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "vickcoo: move to right window" })
