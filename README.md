@@ -117,4 +117,3 @@ Leader key is `<Space>`. `jk` exits insert mode.
 | `<leader>u` | Toggle undo tree |
 | `<leader>y` | Yank to system clipboard |
 | `<C-d>` / `<C-u>` | Half-page scroll (centered) |
-| `J` / `K` | Move 5 lines down / up (`K` is Hover in LSP buffers) |
