@@ -11,7 +11,7 @@ return {
                     "c", "lua", "vim", "vimdoc", "query",
                     "markdown", "markdown_inline",
                     "javascript", "typescript", "tsx", "swift", "solidity",
-                    "html",
+                    "html", "java",
                 },
                 auto_install = false,
                 highlight = { enable = true },

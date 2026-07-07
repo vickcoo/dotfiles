@@ -36,6 +36,9 @@ brew install swiftformat swiftlint
 # LSP servers
 brew install lua-language-server beancount-language-server
 
+# Java: JDK + jdtls language server (Maven projects)
+brew install openjdk maven jdtls
+
 # A Nerd Font (for icons), e.g.
 brew install --cask font-jetbrains-mono-nerd-font
 ```
