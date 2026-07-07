@@ -27,13 +27,12 @@ require("lazy").setup({
         -- import your plugins
         { import = "plugins" },
         { import = "plugins.themes" },
+
+        -- Standalone plugins (must live inside spec, or lazy ignores them)
+        { "nvim-lua/plenary.nvim" },
+        { "mason-org/mason.nvim", opts = {} },
     },
     -- Configure any other settings here. See the documentation for more details.
     -- automatically check for plugin updates
     checker = { enabled = false },
-
-    -- Installed Plugins
-    { "nvim-lua/plenary.nvim", },
-    { "mason-org/mason.nvim",  opts = {} },
-
 })
