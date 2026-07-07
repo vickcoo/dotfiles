@@ -1,20 +1,16 @@
+-- Generic DAP core. The keymaps here are language-agnostic: require('dap')
+-- dispatches to whichever adapter is registered for the current buffer's
+-- filetype. Language-specific launch/test actions live with each language
+-- (Swift: plugins/xcodebuild-nvim.lua, Java: ftplugin/java.lua).
 return {
   "mfussenegger/nvim-dap",
-  dependencies = {
-    "wojciech-kulik/xcodebuild.nvim"
-  },
   config = function()
-    local xcodebuild = require("xcodebuild.integrations.dap")
- 
-    xcodebuild.setup()
- 
-    vim.keymap.set("n", "<leader>dd", xcodebuild.build_and_debug, { desc = "Build & Debug" })
-    vim.keymap.set("n", "<leader>dr", xcodebuild.debug_without_build, { desc = "Debug Without Building" })
-    vim.keymap.set("n", "<leader>dt", xcodebuild.debug_tests, { desc = "Debug Tests" })
-    vim.keymap.set("n", "<leader>dT", xcodebuild.debug_class_tests, { desc = "Debug Class Tests" })
-    vim.keymap.set("n", "<leader>b", xcodebuild.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-    vim.keymap.set("n", "<leader>B", xcodebuild.toggle_message_breakpoint, { desc = "Toggle Message Breakpoint" })
-    vim.keymap.set("n", "<leader>dx", xcodebuild.terminate_session, { desc = "Terminate Debugger" })
+    local dap = require("dap")
+
+    vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "dap: continue / start" })
+    vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "dap: step into" })
+    vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "dap: step over" })
+    vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "dap: step out" })
+    vim.keymap.set("n", "<leader>de", function() dap.repl.toggle() end, { desc = "dap: toggle repl" })
   end,
 }
-
