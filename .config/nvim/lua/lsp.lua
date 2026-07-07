@@ -44,4 +44,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 vim.cmd.colorscheme "cyberdream"
+
+-- Advertise nvim-cmp's enhanced capabilities to every LSP server (auto-import,
+-- snippet expansion, richer completion). '*' applies to all configs, so servers
+-- that don't set capabilities themselves (tslsp, pyright) inherit them here.
+local cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if cmp_ok then
+    vim.lsp.config("*", { capabilities = cmp_nvim_lsp.default_capabilities() })
+end
+
 vim.lsp.enable({ "sourcekit", "lua_ls", "vimls", "pyright", "tslsp", "beancount" })
