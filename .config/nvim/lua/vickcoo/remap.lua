@@ -14,3 +14,8 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "vickcoo: move to left window" }
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "vickcoo: move to lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "vickcoo: move to upper window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "vickcoo: move to right window" })
+
+-- Buffer switching and closing
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "vickcoo: go to next buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "vickcoo: go to previous buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "vickcoo: delete current buffer" })
