@@ -73,3 +73,5 @@ desktop-notifications = true
 
 # Keybindings
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+macos-option-as-alt = true
