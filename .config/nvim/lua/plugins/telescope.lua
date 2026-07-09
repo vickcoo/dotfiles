@@ -4,6 +4,17 @@ return {
         branch = "master",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
+            local action_layout = require("telescope.actions.layout")
+            require('telescope').setup({
+                defaults = {
+                    path_display = { "filename_first" },
+                    mappings = {
+                        i = { ["<M-p>"] = action_layout.toggle_preview },
+                        n = { ["<M-p>"] = action_layout.toggle_preview },
+                    },
+                },
+            })
+
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader><leader>', builtin.keymaps, { desc = 'telescope: telescope lists all normal mode keymappings' })
             vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'telescope: telescope find files' })
