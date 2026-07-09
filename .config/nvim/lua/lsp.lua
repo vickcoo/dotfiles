@@ -25,6 +25,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
         keymap.set("n", "<space>f", function()
             require("conform").format({ async = true, lsp_fallback = true })
         end, bufopts)
+
+        -- Highlight every reference of the symbol under the cursor while it
+        -- rests there. Uses LSP semantics, so it respects scope (won't match a
+        -- same-named variable in a different scope). Needs server support for
+        -- textDocument/documentHighlight.
+        local client = lsp.get_client_by_id(args.data.client_id)
+        if client and client:supports_method("textDocument/documentHighlight") then
+            local hl_group = vim.api.nvim_create_augroup("lsp_document_highlight_" .. args.buf, { clear = true })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                group = hl_group,
+                buffer = args.buf,
+                callback = lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                group = hl_group,
+                buffer = args.buf,
+                callback = lsp.buf.clear_references,
+            })
+        end
     end,
 })
 
