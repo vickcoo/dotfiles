@@ -1,11 +1,25 @@
+-- 包一層 open_floating_preview：套用邊框/尺寸預設，並把 jdtls hover 的 jdt:// 連結
+-- 交給 vickcoo.jdtls_hover 處理（剝掉超長 URL 讓排版乾淨、綁 gd 開原始碼）。jdt 的細節
+-- 都在該模組，這裡只負責串接。
+local jdt = require("vickcoo.jdtls_hover")
+
 local orig = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
     opts.border = opts.border or "rounded"
     opts.max_width = opts.max_width or 80
     opts.max_height = opts.max_height or 20
-    --   opts.title = opts.title or " LSP Info"  -- 可改 icon
-    return orig(contents, syntax, opts, ...)
+
+    local links_by_line
+    if type(contents) == "table" then
+        contents, links_by_line = jdt.strip(contents)
+    end
+
+    local bufnr, winid = orig(contents, syntax, opts, ...)
+    if links_by_line and bufnr and vim.api.nvim_buf_is_valid(bufnr) then
+        jdt.attach(bufnr, contents, links_by_line)
+    end
+    return bufnr, winid
 end
 
 -- Create new keymapping for lsps
